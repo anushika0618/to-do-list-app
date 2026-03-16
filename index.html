@@ -132,9 +132,9 @@
   <script>
     let tasks = JSON.parse(localStorage.getItem('taskflow_tasks') || '[]');
     let filter = 'all';
- 
+
     function save() { localStorage.setItem('taskflow_tasks', JSON.stringify(tasks)); }
- 
+
     function addTask() {
       const input = document.getElementById('taskInput');
       const text = input.value.trim();
@@ -151,28 +151,28 @@
       save();
       render();
     }
- 
+
     function toggleTask(id) {
       const t = tasks.find(t => t.id === id);
       if (t) { t.done = !t.done; save(); render(); }
     }
- 
+
     function deleteTask(id) {
       tasks = tasks.filter(t => t.id !== id);
       save();
       render();
     }
- 
+
     function clearDone() {
       tasks = tasks.filter(t => !t.done);
       save();
       render();
     }
- 
+
     function escapeHtml(str) {
       return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
     }
- 
+
     function render() {
       const list = document.getElementById('taskList');
       const total = tasks.length;
@@ -207,7 +207,7 @@
         </div>
       `).join('');
     }
- 
+
     document.getElementById('addBtn').addEventListener('click', addTask);
     document.getElementById('taskInput').addEventListener('keydown', e => { if (e.key === 'Enter') addTask(); });
     document.getElementById('clearDone').addEventListener('click', clearDone);
