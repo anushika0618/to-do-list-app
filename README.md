@@ -1,29 +1,48 @@
-# to-do-list-app
+# TaskFlow — To-Do List App
 
-# CREATING FOLDER LOCALLY
-cd Desktop
-mkdir taskflow-workshop
-cd taskflow-workshop
+A lightweight, browser-based task manager built with HTML, CSS, and vanilla JavaScript. TaskFlow lets you add tasks, set a priority, track completion, and keep your task list saved in the browser.
 
-# CLONE THE REPO
-git clone https://github.com/THEIR-USERNAME/taskflow-app.git
-cd taskflow-app
-code .
+## Features
 
-# PUSH THE CHANGES
-git status
-git checkout -b feature/my-changes
-git add .
-git commit -m "Personalised the app with my name"
-git push origin feature/my-changes
+- **Add tasks** with a maximum length of 120 characters.
+- **Set task priority** to High, Normal, or Low.
+- **Track progress** with total, active, and completed task counts plus a completion percentage.
+- **Filter tasks** to view All, Active, or Done items.
+- **Manage your list** by marking tasks complete, deleting individual tasks, or clearing all completed tasks.
+- **Save tasks locally** using the browser's `localStorage`, so they remain available when you reopen the app in the same browser.
 
-# GITHUB LOGIN ON VS
-1. GitHub → click profile photo top right → **Settings**
-2. Scroll all the way down → **Developer settings**
-3. **Personal access tokens → Tokens**
-4. **Generate new token**
-5. Give it a name: `workshop-token`
-6. Expiration: 90 days
-7. Tick **repo** 
-8. Click **Generate token**
-9. **Copy it immediately** — GitHub only shows it once
+## Built with
+
+- HTML5
+- CSS3
+- Vanilla JavaScript
+- Browser `localStorage`
+
+The interface uses Google Fonts (DM Sans and Space Mono), which are loaded from Google Fonts when an internet connection is available.
+
+## Run locally
+
+No package installation or build step is required.
+
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/anushika0618/to-do-list-app.git
+   ```
+2. Open the project folder.
+3. Open `index.html` in a web browser.
+
+Alternatively, use the VS Code **Live Server** extension to serve the page locally.
+
+## Data and limitations
+
+- Tasks are stored in the current browser's local storage; they are not synced to an account or across devices.
+- Clearing the browser's site data may remove saved tasks.
+- The project is a front-end application and does not use a backend or database.
+
+## Project structure
+
+```text
+to-do-list-app/
+├── index.html
+└── README.md
+```
