@@ -6,11 +6,11 @@ const priorityInput = $("#prioritySelect");
 const dueDateInput = $("#dueDateInput");
 const taskList = $("#taskList");
 const liveMessage = $("#liveMessage");
-let tasks = readTasks(window.localStorage);
+const storage = (() => {\n  try { return window.localStorage; }\n  catch { return { getItem() { throw new Error("Storage unavailable"); }, setItem() { throw new Error("Storage unavailable"); } }; }\n})();\nlet tasks = readTasks(storage);
 let currentFilter = "all";
 
 function persist() {
-  const saved = writeTasks(window.localStorage, tasks);
+  const saved = writeTasks(storage, tasks);
   if (!saved) announce("Changes could not be saved. Your browser storage may be full or unavailable.");
   return saved;
 }
