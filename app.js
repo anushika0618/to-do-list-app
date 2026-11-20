@@ -37,7 +37,7 @@ function render() {
   $("#doneCount").textContent = stats.done;
   $("#progressPct").textContent = stats.percent + "%";
   $("#progressFill").style.width = stats.percent + "%";
-  $("#progressFill").setAttribute("aria-valuenow", String(stats.percent));
+  $(".progress-track").setAttribute("aria-valuenow", String(stats.percent));
 
   taskList.replaceChildren();
   const visible = filterTasks(tasks, currentFilter);
@@ -157,10 +157,9 @@ function addTask() {
   }
 }
 
-$("#addBtn").addEventListener("click", addTask);
+$("#taskForm").addEventListener("submit", (event) => { event.preventDefault(); addTask(); });
 taskInput.addEventListener("input", () => taskInput.setCustomValidity(""));
 taskInput.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") addTask();
   if (event.key === "Escape") taskInput.value = "";
 });
 $("#clearDone").addEventListener("click", () => {
